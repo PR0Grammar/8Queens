@@ -11,7 +11,6 @@ using namespace std;
 
 
 bool check(int q[], int c){
-
 	for(int i = 0; i < c ; i++){
 		if(q[i] == q[c])
 			return false;
@@ -24,16 +23,13 @@ bool check(int q[], int c){
 int modularQueen(int n){
 	int* q = new int[n];
 	int solutionNum = 0;
-
 	int column = 0;
 
 	while (column >= 0){
-
 		if (column == n-1){
 			solutionNum++;
 			column--; //Solution found now backtrack everything
 		}
-
 		else
 			q[++column] = -1; //starts at 1 (this is what increments the column)
 
@@ -47,7 +43,6 @@ int modularQueen(int n){
 				}
 			}
 	}
-
 	delete []q;
 	return solutionNum;
 }
@@ -57,10 +52,8 @@ int main(){
 	cout<<"Give me an integer: ";
 	cin>>n;
 
-
-	for(int i = 1; i <= n ; i++){
+	for(int i = 1; i <= n ; i++)
 		cout<<i<<". There are "<<modularQueen(i)<<" solutions to the " << i << " queens problem"<<endl;
-	}
 
 	return 0;
 }

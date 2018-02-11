@@ -21,9 +21,9 @@ void print(int q[]){
 
 	for(i = 0; i < 10 ; i++){
 		for(j = 0; j < 14; j++){
+
 			//Black board or white queen
 			bb[i][j] = char(219);
-
 			if( (i==1 && (j==6 || j==7)) ||
 				(i==2 && (j==5 || j==8)) ||
 				(i==3 && (j==5 || j==6 || j==7 || j==8)) ||
@@ -37,10 +37,8 @@ void print(int q[]){
 			else
 				wq[i][j] = char(219);
 
-
 			//White board or black queen
 			wb[i][j] = ' ';
-
 			if( (i==1 && (j==6 || j==7)) ||
 				(i==2 && (j==5 || j==8)) ||
 				(i==3 && (j==5 || j==6 || j==7 || j==8)) ||
@@ -54,21 +52,16 @@ void print(int q[]){
 			else
 				bq[i][j] = ' ';
 		}
-
 	}
-
 
 	for(i = 0; i < 8; i++){
 		for(j = 0; j < 8; j++){
-
 			if((i+j) % 2 == 0){
 				if(j == q[i])
 					board[i][j] = &bq;
 				else
 					board[i][j] = &wb;
 			}
-
-
 			else
 				if(j == q[i])
 					board[i][j] = &wq;
@@ -86,16 +79,18 @@ void print(int q[]){
 	//Board
 	for(i = 0; i < 8; i++){
 		for(k = 0; k < 10; k++){
-			cout<<" "<<char(179); // left border
+			// left border
+			cout<<" "<<char(179);
 			for(j = 0; j < 8 ; j++){
 				for(l = 0; l < 14; l++){
-					cout<<(*board[i][j])[k][l]; //i+j odd/even determines color... k,l print out all elements from 'color' array
+					//i+j odd/even determines color... k,l print out all elements from 'color' array
+					cout<<(*board[i][j])[k][l]; 
 				}
 			}
-			cout<<char(179)<<endl; //At the end of ith 'k' row, print a bar then go to next iteration
+			//At the end of ith 'k' row, print a bar then go to next iteration
+			cout<<char(179)<<endl;
 		}
 	}
-
 	cout<<"  ";
 	for(i = 0; i < 112 ; i++){
 		cout<<char(196);
@@ -106,9 +101,7 @@ void print(int q[]){
 		cout<<"_";
 	}
 	solutionNum++;
-
 }
-
 
 bool ok(int q[], int c) {
    for (int i = 0; i < c; ++i)
@@ -116,8 +109,6 @@ bool ok(int q[], int c) {
          return false;
    return true;
 }
-
-
 
 int main() {
    int q[8] = {};
@@ -139,6 +130,3 @@ int main() {
    }
    return 0;
 }
-
-
-
